@@ -1,0 +1,25 @@
+{
+  "name": "devops-testrun-connect",
+  "version": "1.2.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/francois-nitenberg/devops-testrun-connect.git"
+  },
+  "author": "Francois Nitenberg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/francois-nitenberg/devops-testrun-connect/issues"
+  },
+  "homepage": "https://github.com/francois-nitenberg/devops-testrun-connect#readme",
+  "dependencies": {
+    "base-64": "^1.0.0",
+    "fs": "^0.0.1-security",
+    "node-fetch": "^2.6.1",
+    "path": "^0.12.7"
+  }
+}
