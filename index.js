@@ -32,6 +32,8 @@ exports.init = function (subscription, project, pat, owner) {
         devopsRootURL = `https://dev.azure.com/${subscription}/${project}/_apis/test/`;
         isReady = true;
         ownerName = owner;
+    } else {
+        console.warn(`${consolePrefix}cannot initialise the module. <subscription:${subscription}>, <project:${project}>, <pat:${pat}>`);
     }
 }
 
@@ -168,7 +170,7 @@ exports.startTest = async function (runID, testID) {
         return;
     }
 
-    await callAPI(  `${process.env.devopsapi}runs/${runID}/results?api-version=5.0`,
+    await callAPI(  `${devopsRootURL}runs/${runID}/results?api-version=5.0`,
                     'PATCH',
                     [{
                         "id" : test.result,
@@ -206,7 +208,7 @@ exports.endTest = async function (runID, testID, outcome) {
 
     console.log(`ELAPSED ${elapsed}`);
 
-    await callAPI(  `${process.env.devopsapi}runs/${runID}/results?api-version=6.0`,
+    await callAPI(  `${devopsRootURL}runs/${runID}/results?api-version=6.0`,
                     'PATCH',
                     [{
                         "id" : test.result,
